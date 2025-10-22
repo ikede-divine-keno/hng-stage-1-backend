@@ -24,5 +24,7 @@ class StringsListResponse(BaseModel):
     count: int
     filters_applied: Optional[Dict[str, Union[str, int, bool]]] = None  # Changed 'any' to 'Union[str, int, bool]'
 
-class NaturalLanguageResponse(StringsListResponse):
+class NaturalLanguageResponse(BaseModel):  # No inheritance
+    data: list[StringResponse]
+    count: int
     interpreted_query: Dict[str, Union[str, Dict[str, Union[str, int, bool]]]]  # Updated
